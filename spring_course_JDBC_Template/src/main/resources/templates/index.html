@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ALL PEOPLE</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center my-4">All People</h1>
+    <ul class="list-group mb-4">
+        <li class="list-group-item" th:each="person : ${people}">
+            <a th:href="@{/people/{id}(id=${person.getId()})}"
+               th:text="${person.getName() + ', ' + person.getAge() + ', ' + person.getEmail()}">user</a>
+        </li>
+    </ul>
+    <div class="text-center">
+        <a href="/people/new" class="btn btn-primary">Create New Person</a>
+    </div>
+</div>
+<!-- Add Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
